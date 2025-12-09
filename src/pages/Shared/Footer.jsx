@@ -1,12 +1,12 @@
 import React from 'react';
 import { Facebook, Instagram, Linkedin, Github } from "lucide-react";
-import { SiX } from "react-icons/si"; // X (Twitter new logo)
+import { SiX } from "react-icons/si"; 
 
 const Footer = () => {
     return (
         <footer className="bg-green-700 text-white mt-10 pt-10 pb-6">
             <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-3 gap-10">
-                {/* Quick Links */}
+               
                 <div>
                     <h2 className="text-xl font-semibold mb-3">Quick Links</h2>
                     <ul className="space-y-2 text-sm">
@@ -18,7 +18,7 @@ const Footer = () => {
                 </div>
 
 
-                {/* Contact Details */}
+                
                 <div>
                     <h2 className="text-xl font-semibold mb-3">Contact</h2>
                     <p className="text-sm">📍 Dhaka, Bangladesh</p>
@@ -27,7 +27,7 @@ const Footer = () => {
                 </div>
 
 
-                {/* Social Icons */}
+                
                 <div>
                     <h2 className="text-xl font-semibold mb-3">Follow Us</h2>
 
@@ -43,7 +43,7 @@ const Footer = () => {
             </div>
 
 
-            {/* Copyright */}
+           
             <div className="text-center text-sm mt-8 border-t border-white/30 pt-4">
                 © {new Date().getFullYear()} Bookly — All Rights Reserved.
             </div>
