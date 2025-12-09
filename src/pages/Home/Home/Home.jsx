@@ -3,6 +3,11 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import bannerImg from '../../../assets/books-1655783_1920.jpg'
 import bannerImg2 from '../../../assets/library-1147815_1920.jpg'
 import bannerImg3 from '../../../assets/books-2463779_1920.jpg'
+import LatestBooks from "../LatestBooks";
+import Covarage from "../Covarage";
+import AnimatedSection from "../AnimatedSection";
+import BestSellers from "../BestSellers";
+import Reviews from "../Reviews";
 
 
 
@@ -90,7 +95,13 @@ const Home = () => {
                     />
                 ))}
             </div>
+            <LatestBooks></LatestBooks>
+            <Covarage></Covarage>
+            <AnimatedSection></AnimatedSection>
+            <BestSellers></BestSellers>
+            <Reviews></Reviews>
         </div>
+        
     );
 };
 

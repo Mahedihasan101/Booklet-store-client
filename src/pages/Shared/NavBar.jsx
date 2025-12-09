@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
+import Logo from './Logo/Logo';
+import { Link } from 'react-router';
 
 const NavBar = () => {
     const [open, setOpen] = useState(false);
@@ -9,10 +11,7 @@ const NavBar = () => {
         <nav className={`${dark ? "bg-gray-900 text-white" : "bg-white text-gray-900"} shadow-md w-full`}>
             <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
                
-                <div className="flex items-center gap-2 text-2xl font-bold">
-                    <div className="bg-green-600 text-white p-2 rounded-md">📘</div>
-                    Bookly
-                </div>
+             <Logo></Logo>
 
 
              
@@ -34,6 +33,7 @@ const NavBar = () => {
 
                    
                     <div className="w-9 h-9 bg-gray-300 rounded-full"></div>
+                    <Link to='login'><button className='btn bg-green-500'>Login</button></Link>
                 </div>
 
 
