@@ -9,7 +9,7 @@ const Covarage = () => {
             <h1 className='font-extrabold text-[56px] text-secondary mt-10 pt-[100px] ml-[109px]'>We are available in 64 districts</h1>
             <div></div>
             <div className=' h-[426px] max-w-[1282px] mx-auto'>
-                <h1 className='mt-[100px] font-extrabold text-3xl text-secondary border-t-2 pt-10'>We deliver almost all over Bangladesh</h1>
+                <h1 className='mt-[100px] font-extrabold text-3xl text-green-500 border-t-2 pt-10'>We deliver almost all over Bangladesh</h1>
                 <MapContainer
                     center={position}
                     zoom={13}

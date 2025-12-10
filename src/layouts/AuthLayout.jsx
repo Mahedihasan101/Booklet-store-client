@@ -4,7 +4,7 @@ import { Outlet } from 'react-router';
 
 const AuthLayout = () => {
     return (
-        <div>
+        <div className='max-w-6xl mx-auto'>
             <Logo></Logo>
             <Outlet></Outlet>
             
