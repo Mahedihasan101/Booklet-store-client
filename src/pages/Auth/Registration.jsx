@@ -3,17 +3,39 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import SocialLogin from './SocialLogin/SocialLogin';
+import axios from 'axios';
 
 const Registration = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { registerUser}= useAuth();
+    const { registerUser,updateUserProfile}= useAuth();
 
     const handleRegistration = (data) => {
         console.log('after register', data);
+        const profileImg = data.photo[0];
        registerUser(data.email,data.password)
        .then(result =>{
         console.log(result.user);
+
+        const formData = new FormData();
+        formData.append('image',profileImg)
+        const image_API_URL = `https://api.imgbb.com/1/upload?expiration=600&key=${import.meta.env.VITE_image_host}`
+        axios.post(image_API_URL,formData)
+        .then(res =>{
+            console.log('after image upload',res.data.data.url)
+
+            const userProfile = {
+                displayName: data.name,
+                photoURL: res.data.data.url
+
+            }
+            updateUserProfile(userProfile)
+            .then(()=>{
+                console.log('user profile updated done')
+            })
+            .catch(error =>console.log(error))
+        })
+
        })
        .catch(error =>{
         console.log(error)
@@ -33,10 +55,16 @@ const Registration = () => {
                         <div>
                             <label className="block text-gray-700 mb-2">Full Name</label>
                             <input
-                                type="text"
+                                type="text"{...register('name', { required: true })}
                                 placeholder="John Doe"
                                 className="w-full px-4 py-3 border rounded-xl text-black focus:outline-none focus:ring-2 focus:ring-secondary"
                             />
+                            {errors.name?.type === 'required' && <p className='text-red-500'>Name is required</p>}
+                        </div>
+                        <div>
+                            <label className="block text-gray-700 mb-2">Photo</label>
+                            <input type="file"{...register('photo', { required: true })} className="file-input w-full rounded-xl bg-white text-black border-black"/>
+                            {errors.photo?.type === 'required' && <p className='text-red-500'>Photo  is required</p>}
                         </div>
                         <div>
                             <label className="block text-gray-700 mb-2">Email</label>
