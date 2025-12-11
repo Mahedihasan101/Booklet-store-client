@@ -30,7 +30,7 @@ const NavBar = () => {
                 <ul className="hidden md:flex items-center gap-6 font-medium">
                     <li className="cursor-pointer hover:text-green-600">Home</li>
                     <li className="cursor-pointer hover:text-green-600">Books</li>
-                    <li className="cursor-pointer hover:text-green-600">Dashboard</li>
+                    <Link to='dashboard'><li className="cursor-pointer hover:text-green-600">Dashboard</li></Link>
                     <li className="cursor-pointer hover:text-green-600">Login / Register</li>
                 </ul>
 
@@ -65,7 +65,7 @@ const NavBar = () => {
                 <div className={`${dark ? "bg-gray-800" : "bg-gray-100"} md:hidden px-6 py-4 space-y-3 font-medium`}>
                     <p className="cursor-pointer hover:text-green-600">Home</p>
                     <p className="cursor-pointer hover:text-green-600">Books</p>
-                    <p className="cursor-pointer hover:text-green-600">Dashboard</p>
+                    <Link to='dashboard'><li className="cursor-pointer hover:text-green-600">Dashboard</li></Link>
                     <p className="cursor-pointer hover:text-green-600">Login / Register</p>
 
 
