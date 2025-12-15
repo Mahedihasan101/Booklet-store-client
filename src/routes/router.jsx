@@ -8,6 +8,7 @@ import Registration from "../pages/Auth/Registration";
 import Dashbord from "../pages/Dashbord/Dashbord";
 import PrivateRoute from "./PrivateRoute";
 import AddBook from "../pages/Dashbord/AddBook";
+import AllBooks from "../pages/Dashbord/AllBooks";
 
 
 export const router = createBrowserRouter([
@@ -33,7 +34,12 @@ export const router = createBrowserRouter([
         {
             path:'register',
             Component:Registration,
+        },
+        {
+          path:'all-books',
+          Component:AllBooks
         }
+
     ]
   },
   
@@ -47,6 +53,7 @@ export const router = createBrowserRouter([
                 path:'add-book',
                 Component:AddBook
               }
+             
             ]
         }
   

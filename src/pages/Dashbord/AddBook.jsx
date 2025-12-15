@@ -4,29 +4,32 @@ import { imageUpload } from '../../utils';
 import useAuth from '../../hooks/useAuth';
 import axios from 'axios';
 import { useMutation } from '@tanstack/react-query';
-import toast from 'react-hot-toast';
+
 
 
 const AddBook = () => {
     const { user } = useAuth();
 
     // useMutation hook useCase
-    const {isPending,isError,mutateAsync,} = useMutation({
-        mutationFn:async payload =>
-            await axios.post(`http://localhost:5000/books`, payload),
-        onSuccess:data=>{
-            console.log(data)
-            toast.success('Book Added Successfully')
-            
+    const { isPending, isError, mutateAsync } = useMutation({
+        mutationFn: (payload) =>
+            axios.post('http://localhost:5000/books', payload),
+
+        onSuccess: (response) => {
+            console.log(response.data)
+            alert('Book Added Successfully')
         },
-            onError:error =>{
-                console.log(error )
-            },
-            retry:true
+
+        onError: (error) => {
+            console.log(error.response?.data || error.message)
+            alert('Failed to add book')
+        },
+
+        retry: true
     })
 
     // React Hook Form
-    const { register, handleSubmit,reset, formState: { errors }} = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
     const handleAddBook = async data => {
 
@@ -47,16 +50,16 @@ const AddBook = () => {
                     email: user?.email,
                 }
             }
-           await mutateAsync(bookData)
-           reset()
+            await mutateAsync(bookData)
+            reset()
         } catch (err) {
             console.log(err)
         }
 
     }
 
-    if (isPending)return <p>Loading.....</p>
-    if(isError)return <p>Error....</p>
+    if (isPending) return <p>Loading.....</p>
+    if (isError) return <p>Error....</p>
 
 
     return (

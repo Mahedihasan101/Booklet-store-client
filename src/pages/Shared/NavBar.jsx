@@ -28,10 +28,11 @@ const NavBar = () => {
 
 
                 <ul className="hidden md:flex items-center gap-6 font-medium">
-                    <li className="cursor-pointer hover:text-green-600">Home</li>
-                    <li className="cursor-pointer hover:text-green-600">Books</li>
+                    <Link to='/'><li className="cursor-pointer hover:text-green-600">Home</li></Link>
+                    <Link to='all-books'><li className="cursor-pointer hover:text-green-600">Books</li></Link>
                     <Link to='dashboard'><li className="cursor-pointer hover:text-green-600">Dashboard</li></Link>
-                    <li className="cursor-pointer hover:text-green-600">Login / Register</li>
+                    <Link to='login'><li className="cursor-pointer hover:text-green-600">Login</li></Link>
+
                 </ul>
 
 
@@ -63,10 +64,11 @@ const NavBar = () => {
 
             {open && (
                 <div className={`${dark ? "bg-gray-800" : "bg-gray-100"} md:hidden px-6 py-4 space-y-3 font-medium`}>
-                    <p className="cursor-pointer hover:text-green-600">Home</p>
-                    <Link to=''><li className="cursor-pointer hover:text-green-600">Books</li></Link>
+                    <Link to='/'><li className="cursor-pointer hover:text-green-600">Home</li></Link>
+                    <Link to='all-books'><li className="cursor-pointer hover:text-green-600">Books</li></Link>
                     <Link to='dashboard'><li className="cursor-pointer hover:text-green-600">Dashboard</li></Link>
-                    <p className="cursor-pointer hover:text-green-600">Login / Register</p>
+                    <Link to='login'><li className="cursor-pointer hover:text-green-600">Login</li></Link>
+
 
 
 
