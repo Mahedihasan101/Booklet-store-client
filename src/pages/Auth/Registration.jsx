@@ -3,45 +3,40 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import SocialLogin from './SocialLogin/SocialLogin';
-import axios from 'axios';
+
+import { imageUpload } from '../../utils';
 
 const Registration = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { registerUser,updateUserProfile}= useAuth();
 
-    const handleRegistration = (data) => {
-        console.log('after register', data);
-        const profileImg = data.photo[0];
-       registerUser(data.email,data.password)
-       .then(result =>{
-        console.log(result.user);
+   const handleRegistration = async (data) => {
+  try {
+    console.log('after register', data);
 
-        const formData = new FormData();
-        formData.append('image',profileImg)
-        const image_API_URL = `https://api.imgbb.com/1/upload?expiration=600&key=${import.meta.env.VITE_image_host}`
-        axios.post(image_API_URL,formData)
-        .then(res =>{
-            console.log('after image upload',res.data.data.url)
+    const profileImg = data.photo[0];
 
-            const userProfile = {
-                displayName: data.name,
-                photoURL: res.data.data.url
+    // register user
+    const result = await registerUser(data.email, data.password);
+    console.log(result.user);
 
-            }
-            updateUserProfile(userProfile)
-            .then(()=>{
-                console.log('user profile updated done')
-            })
-            .catch(error =>console.log(error))
-        })
+    // upload image
+    const photoURL = await imageUpload(profileImg);
 
-       })
-       .catch(error =>{
-        console.log(error)
-       })
+    // update profile
+    const userProfile = {
+      displayName: data.name,
+      photoURL: photoURL
+    };
 
-    }
+    await updateUserProfile(userProfile);
+    console.log('user profile updated done');
+
+  } catch (error) {
+    console.log(error);
+  }
+};
     return (
         <div className="min-h-screen flex">
             {/* Left side image */}

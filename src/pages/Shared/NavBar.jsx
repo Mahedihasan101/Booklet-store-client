@@ -12,9 +12,9 @@ const NavBar = () => {
     const [open, setOpen] = useState(false);
     const [dark, setDark] = useState(false);
 
-    const handleLogOut =()=>{
+    const handleLogOut = () => {
         logOut()
-         .then()
+            .then()
             .catch(error => {
                 console.log(error)
             })
@@ -43,11 +43,11 @@ const NavBar = () => {
                     </button>
 
 
-                         {
-                        user ? <div className="w-9 h-9 bg-gray-300 rounded-full"><img  src={user.photoURL} alt="" className='rounded-full'/></div> : <div className="w-9 h-9 bg-gray-300 rounded-full"><FaUser className='ml-2 mt-2' /></div>
+                    {
+                        user ? <div className="w-9 h-9 bg-gray-300 rounded-full"><img src={user.photoURL} alt="" className='rounded-full' /></div> : <div className="w-9 h-9 bg-gray-300 rounded-full"><FaUser className='ml-2 mt-2' /></div>
 
                     }
-                    
+
                     {
                         user ? <button onClick={handleLogOut} className='btn bg-green-500'>Log Out</button> : <Link to='login'><button className='btn bg-green-500'>Log in</button></Link>
 
@@ -64,7 +64,7 @@ const NavBar = () => {
             {open && (
                 <div className={`${dark ? "bg-gray-800" : "bg-gray-100"} md:hidden px-6 py-4 space-y-3 font-medium`}>
                     <p className="cursor-pointer hover:text-green-600">Home</p>
-                    <p className="cursor-pointer hover:text-green-600">Books</p>
+                    <Link to=''><li className="cursor-pointer hover:text-green-600">Books</li></Link>
                     <Link to='dashboard'><li className="cursor-pointer hover:text-green-600">Dashboard</li></Link>
                     <p className="cursor-pointer hover:text-green-600">Login / Register</p>
 
