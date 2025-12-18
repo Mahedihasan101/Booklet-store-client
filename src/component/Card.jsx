@@ -1,20 +1,26 @@
 import React from 'react';
+import { Link } from 'react-router';
 
-const Card = ({book}) => {
-    console.log(book)
+const Card = ({ book }) => {
     return (
-        <div className="card bg-base-100  shadow-sm">
-            <figure>
+        <div className="card bg-base-100 shadow-sm">
+            <figure className="h-56 overflow-hidden">
                 <img
-                    src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                    alt="Shoes" />
+                    src={book?.image}
+                    alt={book?.name}
+                    className="h-full w-full object-cover"
+                />
             </figure>
+
             <div className="card-body">
                 <h2 className="card-title">{book.name}</h2>
                 <p>{book.author}</p>
-                <span>{book.price}</span>
+                <span>৳ {book.price}</span>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary"> book details</button>
+                    <Link to={`/books/${book._id}`}>
+                    <button  className="btn btn-primary">
+                        Book Details
+                    </button></Link>
                 </div>
             </div>
         </div>

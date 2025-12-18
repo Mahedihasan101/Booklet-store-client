@@ -5,6 +5,7 @@ import './index.css'
 import App from './App.jsx'
 import { router } from './routes/router.jsx';
 import AuthProvider from './contexts/AuthContext/AuthProvider.jsx';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import {
   QueryClient,
   QueryClientProvider,
@@ -18,6 +19,7 @@ createRoot(document.getElementById('root')).render(
       <AuthProvider>
         <RouterProvider router={router} />
       </AuthProvider>
+       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </StrictMode>,
 )
