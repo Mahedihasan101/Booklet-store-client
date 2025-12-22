@@ -4,6 +4,7 @@ import img from '../../assets/1013998_OJ8XX60.jpg'
 import { useForm } from 'react-hook-form';
 import useAuth from '../../hooks/useAuth';
 import SocialLogin from './SocialLogin/SocialLogin';
+import { saveOrUpdateUser } from '../../utils';
 
 
 const Login = () => {
@@ -11,9 +12,10 @@ const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { signInUser } = useAuth()
 
-    const handleLogin = (data) => {
+    const handleLogin = async (data) => {
         console.log('form data', data);
         signInUser(data.email, data.password)
+        await saveOrUpdateUser({ name: data.name, email: data.email, image: data.photoURL })
             .then(result => {
                 console.log(result.user);
             })

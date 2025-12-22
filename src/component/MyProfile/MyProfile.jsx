@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { imageUpload } from "../../utils";
 import useAuth from "../../hooks/useAuth";
+import useRole from "../../hooks/useRole";
 
 const MyProfile = () => {
   const { user, setUser, updateUserProfile } = useAuth(); // context থেকে setUser নিশ্চিতভাবে নাও
   const [loading, setLoading] = useState(false);
+  const {role,isRoleLoading}= useRole()
+
+  console.log(role,isRoleLoading)
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm({
     defaultValues: {
@@ -61,6 +65,7 @@ const MyProfile = () => {
           />
           <h3 className="text-xl font-semibold">{user?.displayName}</h3>
           <p className="text-gray-500">{user?.email}</p>
+          <span>{role}</span>
         </div>
 
         {/* Update Form */}

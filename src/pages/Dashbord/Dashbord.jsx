@@ -1,8 +1,15 @@
-import { Menu, Package, CreditCard, LogOut, Settings } from "lucide-react";
+import { Menu, LogOut, Settings } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link, Outlet } from "react-router";
+import useRole from "../../hooks/useRole";
 
 export default function Dashboard() {
+  const {role,isRoleLoading} = useRole();
+
+  if (isRoleLoading) {
+    return <p className="text-center mt-10">Loading dashboard...</p>;
+  }
+
   return (
     <div className="flex min-h-screen bg-gray-100">
       {/* Sidebar */}
@@ -17,32 +24,52 @@ export default function Dashboard() {
         </div>
 
         <nav className="flex flex-col gap-4 text-gray-700 text-base">
-          <Link to="add-book">
-            <button className="flex items-center gap-2 hover:text-black">
-              📚 Add Book
-            </button>
-          </Link>
 
-          <Link to="my-orders">
-            <button className="flex items-center gap-2 hover:text-black">
-              <Settings size={18} /> My Orders
-            </button>
-          </Link>
-          <Link to="manage-order">
-            <button className="flex items-center gap-2 hover:text-black">
-              <Settings size={18} /> Manage Order
-            </button>
-          </Link>
-           <Link to="my-profile">
-            <button className="flex items-center gap-2 hover:text-black">
-              <Settings size={18} /> My Profile
-            </button>
-          </Link>
-            <Link to="invoice">
-            <button className="flex items-center gap-2 hover:text-black">
-              <Settings size={18} /> Invoice
-            </button>
-          </Link>
+          {/* -------- CUSTOMER MENU -------- */}
+          {role === "customer" && (
+            <>
+              <Link to="my-orders">
+                <button className="flex items-center gap-2 hover:text-black">
+                  <Settings size={18} /> My Orders
+                </button>
+              </Link>
+
+              <Link to="my-profile">
+                <button className="flex items-center gap-2 hover:text-black">
+                  <Settings size={18} /> My Profile
+                </button>
+              </Link>
+
+              <Link to="invoice">
+                <button className="flex items-center gap-2 hover:text-black">
+                  <Settings size={18} /> Invoice
+                </button>
+              </Link>
+            </>
+          )}
+
+          {/* -------- LIBRARIAN MENU -------- */}
+          {role === "librarian" && (
+            <>
+              <Link to="add-book">
+                <button className="flex items-center gap-2 hover:text-black">
+                  📚 Add Book
+                </button>
+              </Link>
+
+              <Link to="my-books">
+                <button className="flex items-center gap-2 hover:text-black">
+                  <Settings size={18} /> My Books
+                </button>
+              </Link>
+
+              <Link to="manage-order">
+                <button className="flex items-center gap-2 hover:text-black">
+                  <Settings size={18} /> Manage Orders
+                </button>
+              </Link>
+            </>
+          )}
         </nav>
 
         <div className="mt-auto">

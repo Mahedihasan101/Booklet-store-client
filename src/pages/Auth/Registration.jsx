@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import SocialLogin from './SocialLogin/SocialLogin';
 
-import { imageUpload } from '../../utils';
+import { imageUpload, saveOrUpdateUser } from '../../utils';
 
 const Registration = () => {
 
@@ -23,6 +23,9 @@ const Registration = () => {
 
     // upload image
     const photoURL = await imageUpload(profileImg);
+
+
+    await saveOrUpdateUser({name:data.name,email:data.email,image:photoURL})
 
     // update profile
     const userProfile = {

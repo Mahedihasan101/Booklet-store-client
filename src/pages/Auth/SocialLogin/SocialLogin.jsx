@@ -1,12 +1,17 @@
 import React from 'react';
 import useAuth from '../../../hooks/useAuth';
+import { saveOrUpdateUser } from '../../../utils';
 
 const SocialLogin = () => {
 
-    const {signInGoogle}=useAuth();
-    const handleGoogleSignIn =()=>{
-        signInGoogle()
-         .then(result => {
+    const { signInGoogle } = useAuth();
+    const handleGoogleSignIn = async () => {
+        const {user} = await signInGoogle()
+        await saveOrUpdateUser({ 
+            name: user?.displayName,
+             email: user?.email, 
+             image: user?.photoURL })
+            .then(result => {
                 console.log(result.user);
             })
             .catch(error => {

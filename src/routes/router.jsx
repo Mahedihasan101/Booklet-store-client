@@ -16,6 +16,8 @@ import ManageBooks from "../component/ManageOrder/ManageBooks";
 import MyProfile from "../component/MyProfile/MyProfile";
 import Invoices from "../component/Invoices/Invoices";
 import Payment from "../component/Payment/Payment";
+import MyBooks from "../component/MyBooks/MyBooks";
+import EditBook from "../component/EditBooks/EditBooks";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +28,8 @@ export const router = createBrowserRouter([
       { path: "/books/:id", Component: BookDetails },
       { path: "/all-books", Component: AllBooks },
       { path: "/payment-success", Component: PaymentSuccess },
+      { path: '/edit-book/:id', Component: EditBook }
+
     ],
   },
   {
@@ -48,7 +52,8 @@ export const router = createBrowserRouter([
           { path: 'payment/:orderId', Component: Payment },
           { path: 'my-profile', Component: MyProfile },
           { path: 'invoice', Component: Invoices },
-          
+          { path: 'my-books', Component: MyBooks },
+
 
         ],
       },

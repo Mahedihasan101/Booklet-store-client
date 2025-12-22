@@ -23,7 +23,7 @@ const Invoices = () => {
       <h2 className="text-3xl font-bold mb-6 text-black">My Invoices</h2>
 
       {invoices.length === 0 ? (
-        <p className="text-gray-600">No payments found.</p>
+        <p className="text-gray-600">No payments found....</p>
       ) : (
         <table className="table w-full text-black">
           <thead>
