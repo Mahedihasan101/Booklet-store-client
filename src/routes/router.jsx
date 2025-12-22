@@ -12,12 +12,13 @@ import AllBooks from "../pages/Dashbord/AllBooks";
 import BookDetails from "../component/BookDetails";
 import PaymentSuccess from "../component/PaymentSuccess";
 import MyOrders from "../MyOrder/MyOrders";
-import ManageBooks from "../component/ManageOrder/ManageBooks";
 import MyProfile from "../component/MyProfile/MyProfile";
 import Invoices from "../component/Invoices/Invoices";
 import Payment from "../component/Payment/Payment";
 import MyBooks from "../component/MyBooks/MyBooks";
 import EditBook from "../component/EditBooks/EditBooks";
+import AllUsers from "../pages/Dashbord/AllUsers";
+import ManageBooks from "../pages/Dashbord/ManageBooks";
 
 export const router = createBrowserRouter([
   {
@@ -53,6 +54,14 @@ export const router = createBrowserRouter([
           { path: 'my-profile', Component: MyProfile },
           { path: 'invoice', Component: Invoices },
           { path: 'my-books', Component: MyBooks },
+          {
+            path: "all-users",
+            Component: AllUsers
+          },
+          {
+            path: "manage-books",
+            Component: ManageBooks,
+          }
 
 
         ],

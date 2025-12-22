@@ -4,7 +4,7 @@ import { Link, Outlet } from "react-router";
 import useRole from "../../hooks/useRole";
 
 export default function Dashboard() {
-  const {role,isRoleLoading} = useRole();
+  const { role, isRoleLoading } = useRole();
 
   if (isRoleLoading) {
     return <p className="text-center mt-10">Loading dashboard...</p>;
@@ -66,6 +66,24 @@ export default function Dashboard() {
               <Link to="manage-order">
                 <button className="flex items-center gap-2 hover:text-black">
                   <Settings size={18} /> Manage Orders
+                </button>
+              </Link>
+            </>
+          )}
+          {role === "admin" && (<>
+            <Link to="all-users">
+              <button className="flex items-center gap-2 hover:text-black">
+                👤 All Users
+              </button>
+            </Link>
+             <Link to="manage-books">
+              <button className="flex items-center gap-2 hover:text-black">
+                📚 Manage Books
+              </button>
+            </Link>
+            <Link to="my-profile">
+                <button className="flex items-center gap-2 hover:text-black">
+                  <Settings size={18} /> My Profile
                 </button>
               </Link>
             </>
