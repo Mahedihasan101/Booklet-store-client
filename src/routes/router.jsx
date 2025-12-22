@@ -12,6 +12,10 @@ import AllBooks from "../pages/Dashbord/AllBooks";
 import BookDetails from "../component/BookDetails";
 import PaymentSuccess from "../component/PaymentSuccess";
 import MyOrders from "../MyOrder/MyOrders";
+import ManageBooks from "../component/ManageOrder/ManageBooks";
+import MyProfile from "../component/MyProfile/MyProfile";
+import Invoices from "../component/Invoices/Invoices";
+import Payment from "../component/Payment/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -20,8 +24,8 @@ export const router = createBrowserRouter([
     children: [
       { index: true, Component: Home },
       { path: "/books/:id", Component: BookDetails },
-      { path: "/payment-success", Component: PaymentSuccess },
       { path: "/all-books", Component: AllBooks },
+      { path: "/payment-success", Component: PaymentSuccess },
     ],
   },
   {
@@ -40,6 +44,12 @@ export const router = createBrowserRouter([
         children: [
           { path: "add-book", Component: AddBook },
           { path: "my-orders", Component: MyOrders }, // note: /dashboard/my-orders
+          { path: 'manage-order', Component: ManageBooks },
+          { path: 'payment/:orderId', Component: Payment },
+          { path: 'my-profile', Component: MyProfile },
+          { path: 'invoice', Component: Invoices },
+          
+
         ],
       },
     ],

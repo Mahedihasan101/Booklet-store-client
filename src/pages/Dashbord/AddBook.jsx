@@ -12,8 +12,12 @@ const AddBook = () => {
 
     // useMutation hook useCase
     const { isPending, isError, mutateAsync } = useMutation({
-        mutationFn: (payload) =>
-            axios.post('http://localhost:5000/books', payload),
+         mutationFn: async (bookData) => {
+      return axios.post(
+        `${import.meta.env.VITE_API_URL}/books`,
+        bookData
+      );
+    },
 
         onSuccess: (response) => {
             console.log(response.data)

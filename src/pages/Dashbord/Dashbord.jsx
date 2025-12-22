@@ -28,6 +28,21 @@ export default function Dashboard() {
               <Settings size={18} /> My Orders
             </button>
           </Link>
+          <Link to="manage-order">
+            <button className="flex items-center gap-2 hover:text-black">
+              <Settings size={18} /> Manage Order
+            </button>
+          </Link>
+           <Link to="my-profile">
+            <button className="flex items-center gap-2 hover:text-black">
+              <Settings size={18} /> My Profile
+            </button>
+          </Link>
+            <Link to="invoice">
+            <button className="flex items-center gap-2 hover:text-black">
+              <Settings size={18} /> Invoice
+            </button>
+          </Link>
         </nav>
 
         <div className="mt-auto">

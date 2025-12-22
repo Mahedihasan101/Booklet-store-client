@@ -31,7 +31,7 @@ const NavBar = () => {
                     <Link to='/'><li className="cursor-pointer hover:text-green-600">Home</li></Link>
                     <Link to='all-books'><li className="cursor-pointer hover:text-green-600">Books</li></Link>
                     <Link to='dashboard'><li className="cursor-pointer hover:text-green-600">Dashboard</li></Link>
-                    <Link to='login'><li className="cursor-pointer hover:text-green-600">Login</li></Link>
+                   
 
                 </ul>
 
