@@ -18,7 +18,9 @@ import Payment from "../component/Payment/Payment";
 import MyBooks from "../component/MyBooks/MyBooks";
 import EditBook from "../component/EditBooks/EditBooks";
 import AllUsers from "../pages/Dashbord/AllUsers";
-import ManageBooks from "../pages/Dashbord/ManageBooks";
+import ManageBooks from "../component/ManageOrder/Orders";
+import Orders from "../component/ManageOrder/Orders";
+
 
 export const router = createBrowserRouter([
   {
@@ -49,7 +51,7 @@ export const router = createBrowserRouter([
         children: [
           { path: "add-book", Component: AddBook },
           { path: "my-orders", Component: MyOrders }, // note: /dashboard/my-orders
-          { path: 'manage-order', Component: ManageBooks },
+          { path: 'manages-order', Component: Orders },
           { path: 'payment/:orderId', Component: Payment },
           { path: 'my-profile', Component: MyProfile },
           { path: 'invoice', Component: Invoices },
@@ -58,10 +60,10 @@ export const router = createBrowserRouter([
             path: "all-users",
             Component: AllUsers
           },
-          {
-            path: "manage-books",
-            Component: ManageBooks,
-          }
+          // {
+          //   path: "manage-books",
+          //   Component: ManageBook,
+          // }
 
 
         ],

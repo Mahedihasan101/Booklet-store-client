@@ -57,13 +57,13 @@ export default function Dashboard() {
                 </button>
               </Link>
 
-              <Link to="my-books">
+              <Link to="manages-order">
                 <button className="flex items-center gap-2 hover:text-black">
                   <Settings size={18} /> My Books
                 </button>
               </Link>
 
-              <Link to="manage-order">
+              <Link to="manages-order">
                 <button className="flex items-center gap-2 hover:text-black">
                   <Settings size={18} /> Manage Orders
                 </button>
@@ -76,11 +76,11 @@ export default function Dashboard() {
                 👤 All Users
               </button>
             </Link>
-             <Link to="manage-books">
+             {/* <Link to="manage-books">
               <button className="flex items-center gap-2 hover:text-black">
                 📚 Manage Books
               </button>
-            </Link>
+            </Link> */}
             <Link to="my-profile">
                 <button className="flex items-center gap-2 hover:text-black">
                   <Settings size={18} /> My Profile

@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "booklet-store-2025",
+    "prod": "booklet-store-3bd07"
+  },
+  "targets": {},
+  "etags": {}
+}

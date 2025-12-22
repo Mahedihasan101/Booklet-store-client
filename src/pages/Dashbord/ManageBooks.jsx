@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-const ManageBooks = () => {
+const ManageBook = () => {
   const { data: books = [], refetch, isLoading } = useQuery({
     queryKey: ["admin-books"],
     queryFn: async () => {
@@ -86,4 +86,4 @@ const ManageBooks = () => {
   );
 };
 
-export default ManageBooks;
+export default ManageBook;
